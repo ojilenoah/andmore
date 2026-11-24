@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102f91">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Review your And More Value Mart cart and enter your delivery details.">
+  <title>Checkout | And More Value Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+  <script src="cart-storage.js" defer></script>
+  <script src="checkout.js" defer></script>
+</head>
+<body>
+  <div class="announcement checkout-announcement">
+    <div class="container announcement-inner">
+      <p><a class="announcement-whatsapp" href="https://wa.me/2348033351931" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp at 08033351931"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 11.6a8.2 8.2 0 0 1-12 7.3L4 20l1.1-3.9a8.2 8.2 0 1 1 15-4.5Z"/><path d="M8.7 8.1c.2-.4.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4 0 .6.4.7 1.1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.5-1.7.3-1-.3-2.1-.8-3.3-1.9-1.2-1.1-1.9-2.3-2.1-3.2-.2-.6 0-1.2.3-1.6Z"/></svg><span>WhatsApp&nbsp; 08033351931</span></a></p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container checkout-header">
+      <a class="brand" href="index.html" aria-label="And More Value Mart home"><img src="andmoreLogo2.png" alt="And More Value Mart"></a>
+      <a class="checkout-back" href="products.html"><svg class="ui-icon arrow-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"></path></svg> Continue shopping</a>
+    </div>
+  </header>
+
+  <main class="container checkout-main">
+    <div class="checkout-layout">
+      <section class="checkout-details" aria-labelledby="contact-title">
+        <h1 id="contact-title">Checkout</h1>
+        <form id="checkout-form">
+          <fieldset class="checkout-fieldset">
+            <legend>Contact information</legend>
+            <label class="field-label" for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="field-note">Your receipt and delivery updates will be sent here.</p>
+          </fieldset>
+
+          <fieldset class="checkout-fieldset">
+            <legend>Delivery address</legend>
+            <label class="field-label" for="country">Country / Region</label>
+            <select id="country" name="country" autocomplete="country-name" required>
+              <option value="Nigeria" selected>Nigeria</option>
+            </select>
+            <div class="field-row">
+              <div><label class="field-label" for="first-name">First name</label><input id="first-name" name="firstName" autocomplete="given-name" required></div>
+              <div><label class="field-label" for="last-name">Last name</label><input id="last-name" name="lastName" autocomplete="family-name" required></div>
+            </div>
+            <label class="field-label" for="company">Company <span>(optional)</span></label>
+            <input id="company" name="company" autocomplete="organization">
+            <label class="field-label" for="address">Street address</label>
+            <input id="address" name="address" autocomplete="street-address" placeholder="House number and street name" required>
+            <div class="field-row">
+              <div><label class="field-label" for="city">City</label><input id="city" name="city" autocomplete="address-level2" required></div>
+              <div><label class="field-label" for="state">State</label>
+                <select id="state" name="state" autocomplete="address-level1" required>
+                  <option value="">Select a state</option>
+                  <option>Abuja (FCT)</option><option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option><option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option><option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option><option>Ekiti</option><option>Enugu</option><option>Gombe</option><option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option><option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option><option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option><option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option><option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+                </select>
+              </div>
+            </div>
+            <label class="field-label" for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+234" required>
+          </fieldset>
+
+          <fieldset class="checkout-fieldset payment-fieldset">
+            <legend>Payment method</legend>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card" checked>
+              <span class="radio-mark" aria-hidden="true"></span>
+              <span><strong>Debit or credit card</strong><small>Visa, Mastercard and Verve</small></span>
+              <span class="payment-card-icons" aria-hidden="true">VISA&nbsp; MC</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="transfer">
+              <span class="radio-mark" aria-hidden="true"></span>
+              <span><strong>Bank transfer</strong><small>Payment instructions shown after checkout</small></span>
+              <svg class="ui-icon transfer-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h14l-3-3m3 3-3 3M20 16H6l3 3m-3-3 3-3"></path></svg>
+            </label>
+          </fieldset>
+
+          <label class="order-note"><input type="checkbox" name="orderNote"><span>Add a note to your order</span></label>
+          <p class="terms-note">By continuing, you agree to our <a href="#terms">Terms and Conditions</a> and <a href="#privacy">Privacy Policy</a>.</p>
+          <button class="button button-red place-order" type="submit">Review order <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"></path></svg></button>
+          <p class="checkout-message" aria-live="polite"></p>
+          <p class="prototype-note">This preview does not process payments or submit orders.</p>
+        </form>
+      </section>
+
+      <aside class="order-summary" aria-labelledby="summary-title">
+        <div class="summary-heading"><h2 id="summary-title">Order summary</h2><span class="summary-count">0 items</span></div>
+        <div class="order-items"></div>
+        <div class="summary-empty" hidden>
+          <p>Your cart is empty.</p>
+          <a href="products.html">Browse popular picks <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"></path></svg></a>
+        </div>
+        <div class="summary-totals">
+          <div><span>Subtotal</span><strong class="summary-subtotal">₦0</strong></div>
+          <div><span>Delivery</span><span>Calculated after address</span></div>
+          <div class="summary-total"><strong>Total</strong><strong class="summary-total-amount">₦0</strong></div>
+        </div>
+        <a class="summary-back" href="products.html"><svg class="ui-icon arrow-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"></path></svg> Return to shopping</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer checkout-footer">
+    <div class="footer-benefit"><div class="container footer-benefit-inner"><span class="footer-coin" aria-hidden="true">₦</span><strong>Great prices. Great finds. More value for you.</strong></div></div>
+    <div class="container footer-bottom"><span>© 2026 And More Value Mart. All rights reserved.</span><span>Secure checkout · Abuja, Nigeria</span></div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/2348033351931" target="_blank" rel="noopener noreferrer" aria-label="Chat with And More Value Mart on WhatsApp at 08033351931" title="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 11.6a8.2 8.2 0 0 1-12 7.3L4 20l1.1-3.9a8.2 8.2 0 1 1 15-4.5Z"/><path d="M8.7 8.1c.2-.4.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4 0 .6.4.7 1.1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.5-1.7.3-1-.3-2.1-.8-3.3-1.9-1.2-1.1-1.9-2.3-2.1-3.2-.2-.6 0-1.2.3-1.6Z"/></svg></a>
+</body>
+</html>

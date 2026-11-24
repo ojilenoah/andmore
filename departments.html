@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102f91">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Browse all departments at And More Value Mart.">
+  <title>Departments | And More Value Mart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="navigation.js" defer></script>
+  <script src="departments.js" defer></script>
+</head>
+<body>
+  <div class="announcement"><div class="container announcement-inner"><p><a class="announcement-whatsapp" href="https://wa.me/2348033351931" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp at 08033351931"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 11.6a8.2 8.2 0 0 1-12 7.3L4 20l1.1-3.9a8.2 8.2 0 1 1 15-4.5Z"/><path d="M8.7 8.1c.2-.4.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4 0 .6.4.7 1.1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.5-1.7.3-1-.3-2.1-.8-3.3-1.9-1.2-1.1-1.9-2.3-2.1-3.2-.2-.6 0-1.2.3-1.6Z"/></svg><span>WhatsApp&nbsp; 08033351931</span></a></p></div></div>
+  <header class="site-header">
+    <div class="container header-main">
+      <a class="brand" href="index.html" aria-label="And More Value Mart home"><img src="andmoreLogo2.png" alt="And More Value Mart — More value, more savings, more for you"></a>
+      <div class="location-control">
+        <button class="location-picker" type="button" aria-expanded="false" aria-haspopup="true"><svg class="ui-icon location-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="location-copy"><small>Your branch</small><strong>Select a branch</strong></span><svg class="ui-icon location-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="location-menu t-dropdown" data-origin="top-left" hidden>
+          <span class="dropdown-label">Choose a branch</span>
+          <label class="location-search"><span class="visually-hidden">Search branches</span><input type="search" placeholder="Search branches" autocomplete="off"></label>
+          <button type="button" data-location="Abuja Store"><span class="location-option-copy"><strong>Abuja Store</strong><small>Suite F20, Asokoro Shopping Complex, Asokoro, Abuja.</small></span></button>
+          <button type="button" data-location="Abuja Store2"><span class="location-option-copy"><strong>Abuja Store2</strong><small>C7, AMAN Plaza, opposite Chicken Republic, Mpape, Abuja.</small></span></button>
+          <button type="button" data-location="Lagos Store"><span class="location-option-copy"><strong>Lagos Store</strong><small>27/29 Isa Williams Street, Lagos Island.</small></span></button>
+          <p class="location-no-results" hidden>No matching branches.</p>
+        </div>
+      </div>
+      <form class="search" role="search" action="index.html#products"><label class="visually-hidden" for="site-search">Search products</label><input id="site-search" type="search" placeholder="Search products..." autocomplete="off"><button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg></button></form>
+      <div class="header-actions"><a class="account-link" href="#account" aria-label="Your account"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.3"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg></a><a class="cart-button" href="index.html#products" aria-label="Cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2l2.5 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L21 8H5"></path><circle cx="9" cy="20" r="1.2"></circle><circle cx="17" cy="20" r="1.2"></circle></svg><span class="cart-label">Cart</span></a></div>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation"><div class="container nav-inner">
+      <a class="nav-link nav-home" href="index.html">Home</a>
+      <div class="nav-dropdown nav-shop"><button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Shop <svg class="ui-icon dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="nav-dropdown-menu t-dropdown" data-origin="top-left" hidden><a href="products.html">Shop all products</a><a href="index.html#products">Popular picks</a><a href="departments.html">Browse departments</a></div></div>
+      <div class="nav-dropdown nav-departments"><button class="nav-link nav-dropdown-toggle active" type="button" aria-expanded="false" aria-haspopup="true" data-desktop-href="departments.html">Departments <svg class="ui-icon dropdown-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="nav-dropdown-menu department-menu t-dropdown" data-origin="top-left" hidden><a href="department.html?category=grains-pasta">Groceries, grains &amp; pasta</a><a href="department.html?category=beverages">Beverages</a><a href="department.html?category=biscuits-snacks">Biscuits &amp; snacks</a><a href="department.html?category=households">Households</a><a href="department.html?category=cleaning-aids">Cleaning aids</a><a class="mobile-departments-all" href="departments.html">Browse all departments</a></div></div>
+      <a class="nav-link nav-contact" href="index.html#footer">Contact</a>
+    </div></nav>
+  </header>
+  <main class="container section department-directory">
+    <div class="section-heading"><div><h1>Shop by department</h1></div><p class="department-directory-intro">Choose an aisle to see its products.</p></div>
+    <div class="department-grid" id="department-list" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer"><div class="footer-benefit"><div class="container footer-benefit-inner"><span class="footer-coin" aria-hidden="true">₦</span><strong>Great prices. Great finds. More value for you.</strong></div></div><div class="container footer-bottom"><span>© 2026 And More Value Mart. All rights reserved.</span><a href="index.html">Back to home</a></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/2348033351931" target="_blank" rel="noopener noreferrer" aria-label="Chat with And More Value Mart on WhatsApp at 08033351931" title="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 11.6a8.2 8.2 0 0 1-12 7.3L4 20l1.1-3.9a8.2 8.2 0 1 1 15-4.5Z"/><path d="M8.7 8.1c.2-.4.4-.5.7-.5h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4 0 .6.4.7 1.1 1.3 1.8 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.4-.5.4-1.1.5-1.7.3-1-.3-2.1-.8-3.3-1.9-1.2-1.1-1.9-2.3-2.1-3.2-.2-.6 0-1.2.3-1.6Z"/></svg></a>
+</body>
+</html>
