@@ -24,20 +24,7 @@ const departmentsBySlug = {
   "wines-spirits": { title: "Wines & Spirits", group: "empty", description: "Browse the wines and spirits department." }
 };
 
-const products = [
-  { id: "indomie chicken noodles", group: "groceries", name: "Instant Noodles, Chicken Flavour", price: 700, emoji: "🍜", visual: "visual-noodles", label: "INSTANT NOODLES" },
-  { id: "malt drink", group: "beverages", name: "Malt Drink, 330 ml", price: 1200, emoji: "🥤", visual: "visual-malt", label: "MALT DRINK" },
-  { id: "chocolate chip cookies", group: "snacks", name: "Chocolate Chip Cookies", price: 950, emoji: "🍪", visual: "visual-cookies", label: "CHOCOLATE COOKIES" },
-  { id: "laundry detergent", group: "household", name: "Fresh Laundry Detergent", price: 3450, emoji: "🧴", visual: "visual-clean", label: "FRESH & CLEAN" },
-  { id: "long grain rice", group: "groceries", name: "Premium Long Grain Rice, 5 kg", price: 5200, emoji: "🍚", visual: "visual-rice", label: "LONG GRAIN RICE" },
-  { id: "orange juice", group: "beverages", name: "Orange Juice, 1 Litre", price: 1800, emoji: "🍊", visual: "visual-juice", label: "100% ORANGE" },
-  { id: "potato crisps", group: "snacks", name: "Classic Potato Crisps", price: 650, emoji: "🥔", visual: "visual-crisps", label: "CRUNCHY CRISPS" },
-  { id: "paper towels", group: "household", name: "Everyday Paper Towels, 2 Pack", price: 1250, emoji: "🧻", visual: "visual-towels", label: "SOFT & STRONG" },
-  { id: "tomato pasta sauce", group: "groceries", name: "Tomato Pasta Sauce, 500 g", price: 1450, emoji: "🍅", visual: "visual-tomato", label: "TOMATO SAUCE" },
-  { id: "chocolate wafer biscuits", group: "snacks", name: "Chocolate Wafer Biscuits", price: 800, emoji: "🍫", visual: "visual-wafer", label: "CHOCOLATE WAFERS" },
-  { id: "sparkling grape drink", group: "beverages", name: "Sparkling Grape Drink, 750 ml", price: 2650, emoji: "🍇", visual: "visual-grape", label: "SPARKLING GRAPE" },
-  { id: "dishwashing liquid", group: "household", name: "Fresh Dishwashing Liquid", price: 1850, emoji: "🧽", visual: "visual-dish", label: "DISH WASH" }
-];
+const products = window.andMoreProducts;
 
 const formatPrice = (amount) => `₦${amount.toLocaleString("en-NG")}`;
 const params = new URLSearchParams(window.location.search);
@@ -62,6 +49,7 @@ visibleProducts.forEach((product) => {
     <div class="product-visual ${product.visual}"><span class="product-emoji" aria-hidden="true">${product.emoji}</span><span class="pack-label">${product.label}</span></div>
     <div class="product-info"><span class="stock"><i></i> In stock</span><h3></h3><div class="product-bottom"><strong class="price">${formatPrice(product.price)}</strong><button class="add-button" type="button">Add to cart <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h2l2.6 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L21 8H5"/><circle cx="9" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/><path d="M13 9v5M10.5 11.5h5"/></svg></button></div></div>`;
   card.querySelector("h3").textContent = product.name;
+  addProductDetailLinks(card);
   const quantityControl = document.createElement("div");
   quantityControl.className = "product-card-quantity";
   quantityControl.setAttribute("role", "group");
@@ -75,7 +63,10 @@ visibleProducts.forEach((product) => {
   departmentProducts.append(card);
 });
 
-const cart = new Map(readSharedCart());
+const cart = new Map(readSharedCart().map(([id, item]) => {
+  const normalizedId = id.trim().toLowerCase();
+  return [normalizedId, { ...item, id: normalizedId }];
+}));
 
 function updateProductCard(productId) {
   const card = [...departmentProducts.querySelectorAll(".product-card")].find((item) => item.dataset.name === productId);

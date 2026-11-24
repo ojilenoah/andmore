@@ -13,7 +13,10 @@ const whatsappOrderButton = document.querySelector(".whatsapp-order-button");
 const cartCount = document.querySelector(".cart-count");
 const cartHeaderTotal = document.querySelector(".cart-header-total");
 const toast = document.querySelector(".toast");
-const cart = new Map(readSharedCart());
+const cart = new Map(readSharedCart().map(([id, item]) => {
+  const normalizedId = id.trim().toLowerCase();
+  return [normalizedId, { ...item, id: normalizedId }];
+}));
 const sortSelect = document.querySelector(".sort-select");
 const showSelect = document.querySelector(".show-select");
 const pagination = document.querySelector(".pagination");
@@ -66,6 +69,7 @@ function setSearchStatus(text) {
 
 function setupProductCard(product) {
   const name = product.querySelector("h3").textContent;
+  addProductDetailLinks(product);
   const quantityControl = document.createElement("div");
   quantityControl.className = "product-card-quantity";
   quantityControl.setAttribute("role", "group");
@@ -453,4 +457,5 @@ if (heroCarousel) {
 
 products.forEach(setupProductCard);
 renderCart(false);
+searchInput.value = new URLSearchParams(window.location.search).get("q") || "";
 filterProducts(true, false);

@@ -1,17 +1,4 @@
-const catalog = {
-  "indomie chicken noodles": { name: "Instant Noodles, Chicken Flavour", price: 700, emoji: "🍜" },
-  "malt drink": { name: "Malt Drink, 330 ml", price: 1200, emoji: "🥤" },
-  "chocolate chip cookies": { name: "Chocolate Chip Cookies", price: 950, emoji: "🍪" },
-  "laundry detergent": { name: "Fresh Laundry Detergent", price: 3450, emoji: "🧴" },
-  "long grain rice": { name: "Premium Long Grain Rice, 5 kg", price: 5200, emoji: "🍚" },
-  "orange juice": { name: "Orange Juice, 1 Litre", price: 1800, emoji: "🍊" },
-  "potato crisps": { name: "Classic Potato Crisps", price: 650, emoji: "🥔" },
-  "paper towels": { name: "Everyday Paper Towels, 2 Pack", price: 1250, emoji: "🧻" },
-  "tomato pasta sauce": { name: "Tomato Pasta Sauce, 500 g", price: 1450, emoji: "🍅" },
-  "chocolate wafer biscuits": { name: "Chocolate Wafer Biscuits", price: 800, emoji: "🍫" },
-  "sparkling grape drink": { name: "Sparkling Grape Drink, 750 ml", price: 2650, emoji: "🍇" },
-  "dishwashing liquid": { name: "Fresh Dishwashing Liquid", price: 1850, emoji: "🧽" }
-};
+const catalog = Object.fromEntries(window.andMoreProducts.map((product) => [product.id, product]));
 
 const itemsContainer = document.querySelector(".order-items");
 const summaryEmpty = document.querySelector(".summary-empty");
