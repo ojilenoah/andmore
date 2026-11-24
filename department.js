@@ -46,6 +46,7 @@ const department = departmentsBySlug[categoryKey];
 const title = department ? department.title : "Department not found";
 document.title = `${title} | And More Value Mart`;
 document.querySelector(".department-name").textContent = title;
+document.querySelector(".breadcrumb-current").textContent = title;
 document.querySelector(".department-description").textContent = department
   ? department.description
   : "Choose a department from the directory to explore its products.";

@@ -24,23 +24,37 @@ let requestedItems = [];
 let invalidBasket = false;
 const serializedItems = new URLSearchParams(window.location.search).get("items");
 
+function resolveCheckoutItem(id, quantity) {
+  if (typeof id !== "string" || !Number.isSafeInteger(quantity) || quantity < 1 || quantity > 99) {
+    invalidBasket = true;
+    return null;
+  }
+  const normalizedId = id.trim().toLowerCase();
+  const product = catalog[normalizedId];
+  if (!product) {
+    invalidBasket = true;
+    return null;
+  }
+  return { ...product, id: normalizedId, quantity };
+}
+
 if (serializedItems) {
   try {
     const parsedItems = JSON.parse(serializedItems);
     if (!Array.isArray(parsedItems)) throw new SyntaxError("Basket must be a list.");
     requestedItems = parsedItems.flatMap((entry) => {
-      if (!entry || typeof entry.id !== "string" || !catalog[entry.id] || !Number.isSafeInteger(entry.quantity) || entry.quantity < 1 || entry.quantity > 99) {
-        invalidBasket = true;
-        return [];
-      }
-      return [{ ...catalog[entry.id], id: entry.id, quantity: entry.quantity }];
+      const item = resolveCheckoutItem(entry && entry.id, entry && entry.quantity);
+      return item ? [item] : [];
     });
   } catch (error) {
     if (!(error instanceof SyntaxError)) throw error;
     invalidBasket = true;
   }
 } else {
-  requestedItems = readSharedCart().map(([id, item]) => ({ id, quantity: item.quantity }));
+  requestedItems = readSharedCart().flatMap(([id, item]) => {
+    const resolvedItem = resolveCheckoutItem(id, item && item.quantity);
+    return resolvedItem ? [resolvedItem] : [];
+  });
 }
 
 let itemCount = 0;

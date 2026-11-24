@@ -255,6 +255,7 @@ function renderCart(animateTotal = true) {
 function setCartOpen(open) {
   cartDrawer.classList.toggle("open", open);
   cartBackdrop.hidden = !open;
+  cartBackdrop.classList.toggle("visible", open);
   cartDrawer.setAttribute("aria-hidden", String(!open));
   document.body.classList.toggle("no-scroll", open);
   if (open) document.querySelector(".drawer-close").focus();

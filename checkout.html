@@ -36,36 +36,56 @@
         <form id="checkout-form">
           <fieldset class="checkout-fieldset">
             <legend>Contact information</legend>
-            <label class="field-label" for="email">Email address</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <div class="field-control">
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <label class="field-label" for="email">Email address</label>
+            </div>
             <p class="field-note">Your receipt and delivery updates will be sent here.</p>
           </fieldset>
 
           <fieldset class="checkout-fieldset">
             <legend>Delivery address</legend>
-            <label class="field-label" for="country">Country / Region</label>
-            <select id="country" name="country" autocomplete="country-name" required>
-              <option value="Nigeria" selected>Nigeria</option>
-            </select>
-            <div class="field-row">
-              <div><label class="field-label" for="first-name">First name</label><input id="first-name" name="firstName" autocomplete="given-name" required></div>
-              <div><label class="field-label" for="last-name">Last name</label><input id="last-name" name="lastName" autocomplete="family-name" required></div>
+            <div class="field-control field-control-select">
+              <select id="country" name="country" autocomplete="country-name" required>
+                <option value="Nigeria" selected>Nigeria</option>
+              </select>
+              <label class="field-label" for="country">Country / Region</label>
             </div>
-            <label class="field-label" for="company">Company <span>(optional)</span></label>
-            <input id="company" name="company" autocomplete="organization">
-            <label class="field-label" for="address">Street address</label>
-            <input id="address" name="address" autocomplete="street-address" placeholder="House number and street name" required>
             <div class="field-row">
-              <div><label class="field-label" for="city">City</label><input id="city" name="city" autocomplete="address-level2" required></div>
-              <div><label class="field-label" for="state">State</label>
+              <div class="field-control">
+                <input id="first-name" name="firstName" autocomplete="given-name" placeholder=" " required>
+                <label class="field-label" for="first-name">First name</label>
+              </div>
+              <div class="field-control">
+                <input id="last-name" name="lastName" autocomplete="family-name" placeholder=" " required>
+                <label class="field-label" for="last-name">Last name</label>
+              </div>
+            </div>
+            <div class="field-control">
+              <input id="company" name="company" autocomplete="organization" placeholder=" ">
+              <label class="field-label" for="company">Company <span>(optional)</span></label>
+            </div>
+            <div class="field-control">
+              <input id="address" name="address" autocomplete="street-address" placeholder="House number and street name" required>
+              <label class="field-label" for="address">Street address</label>
+            </div>
+            <div class="field-row">
+              <div class="field-control">
+                <input id="city" name="city" autocomplete="address-level2" placeholder=" " required>
+                <label class="field-label" for="city">City</label>
+              </div>
+              <div class="field-control field-control-select">
                 <select id="state" name="state" autocomplete="address-level1" required>
                   <option value="">Select a state</option>
                   <option>Abuja (FCT)</option><option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option><option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option><option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option><option>Ekiti</option><option>Enugu</option><option>Gombe</option><option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option><option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option><option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option><option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option><option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
                 </select>
+                <label class="field-label" for="state">State</label>
               </div>
             </div>
-            <label class="field-label" for="phone">Phone number</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+234" required>
+            <div class="field-control">
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+234" required>
+              <label class="field-label" for="phone">Phone number</label>
+            </div>
           </fieldset>
 
           <fieldset class="checkout-fieldset payment-fieldset">
